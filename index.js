@@ -1,8 +1,12 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const apiRoute = require("./route");
 
+mongoose.connect(process.env.DATABASE, () => {
+    console.log("Database connected");
+})
 const port = 3000 || process.env.PORT;
 
 const app = express();
