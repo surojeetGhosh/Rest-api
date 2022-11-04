@@ -4,8 +4,13 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const apiRoute = require("./route");
 
-mongoose.connect(process.env.DATABASE, () => {
-    console.log("Database connected");
+mongoose.connect(process.env.DATABASE, (err) => {
+    if(err){
+        console.log(err);
+    } else {
+        console.log("Database connected");
+    }
+    
 })
 const port = 3000 || process.env.PORT;
 

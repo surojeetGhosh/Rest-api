@@ -1,7 +1,8 @@
 const book = require("../models/books");
 
 const add = (req, res) => {
-    const data = req.body;
+    const data = req.query;
+    console.log(data);
     const bookData = new book({
         bookName: data.name,
         authorName: data.author,
